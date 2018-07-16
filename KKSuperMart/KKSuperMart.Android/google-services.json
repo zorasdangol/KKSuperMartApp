@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "795490503704",
+    "firebase_url": "https://kksupermart-202204.firebaseio.com",
+    "project_id": "kksupermart-202204",
+    "storage_bucket": "kksupermart-202204.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795490503704:android:9e134882ab071e66",
+        "android_client_info": {
+          "package_name": "com.ims.KKSuperMart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "795490503704-n08f0ok70j38pqsal4igjgo7fkgfijql.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "795490503704-n08f0ok70j38pqsal4igjgo7fkgfijql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9JH-JnQSWW0EbvFmWmSvDgnBx6vK0QHQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

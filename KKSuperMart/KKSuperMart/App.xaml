@@ -1,10 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:con ="clr-namespace:KKSuperMart.Converters"
              x:Class="KKSuperMart.App">
-	<Application.Resources>
+    <Application.Resources>
+        <!-- Application resource dictionary -->
 
-		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <Color x:Key="orangeColor">#ffb700</Color>
+            <Color x:Key="greenColor">#466d1d</Color>
+            <!--<Style TargetType="forms:CachedImage">
+                <Setter Property="LoadingPlaceholder"
+                    Value="icon.png" />
+            </Style>-->
 
-	</Application.Resources>
+            <con:VisibilityConverter x:Key="vc"/>
+            <con:InVisibilityConverter x:Key="ivc"/>
+            <con:PointsInVisibilityConverter x:Key="pivc"/>
+            <con:HideZeroConverter x:Key="hzc"/>
+            <con:StringConverter x:Key="StringConverter"/>
+            <con:ColorConverter x:Key="cc"/>
+            <con:DateConverter x:Key="dc"/>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

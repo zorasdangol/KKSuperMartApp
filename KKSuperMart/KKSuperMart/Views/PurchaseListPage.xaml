@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="KKSuperMart.Views.PurchaseListPage"
+             xmlns:views="clr-namespace:KKSuperMart.Views"
+             Title="Purchase List"
+             xmlns:con ="clr-namespace:KKSuperMart.Converters"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <con:VisibilityConverter x:Key="vc"/>
+            <con:InVisibilityConverter x:Key="ivc"/>
+            <con:StringConverter x:Key="StringConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource orangeColor}">
+             <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+
+                <views:AdvertisementPage Grid.Row="0"/>
+
+
+                <StackLayout Grid.Row="1" 
+                             Padding="5"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand">
+                    <Frame Margin="20"
+                           HasShadow="False"
+                           CornerRadius="10"
+                           OutlineColor="LightGray"
+                           MinimumHeightRequest="300"
+                           BackgroundColor="LightGray"
+                           IsVisible="{Binding ItemCount, Converter={StaticResource ivc}}">
+                        <StackLayout VerticalOptions="CenterAndExpand"
+                                 HorizontalOptions="CenterAndExpand">
+                            <Image Source="warning.png"/>
+                            <Label Text="No purchase to display"
+                               FontSize="Large"/>
+                        </StackLayout>
+                    </Frame>
+                    <ListView x:Name="purchaseListView"
+                              ItemsSource="{Binding PurchaseItems}"
+                              HasUnevenRows="true"
+                              ItemSelected="PurchaseItem_ItemSelected"
+                              SeparatorVisibility="None"
+                              IsPullToRefreshEnabled="true"
+                              RefreshCommand="{Binding RefreshCommand}"
+                              IsRefreshing="{Binding IsRefreshing}"
+                              BackgroundColor="{StaticResource orangeColor}"
+                              >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame OutlineColor="Transparent"
+                                           BackgroundColor="White"
+                                           HasShadow="false"
+                                           Margin="5"
+                                           Padding="15"
+                                           CornerRadius="10"
+                                           >
+                                        <StackLayout Orientation="Vertical">
+                                            <StackLayout Orientation="Horizontal"
+                                                         HorizontalOptions="End">
+                                                <Image Source="calender.png"
+                                                       HeightRequest="15"
+                                                       HorizontalOptions="End"/>
+                                                <Label Text="{Binding Date}" 
+                                                      TextColor="Green"
+                                                      HorizontalTextAlignment="End"/>
+                                            </StackLayout>
+                                            
+                                               <Grid>
+                                                <Grid.ColumnDefinitions >
+                                                    <ColumnDefinition Width="2*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition/>
+                                                </Grid.RowDefinitions>
+
+                                                <Label Grid.Row="0"
+                                                       Grid.Column="0" 
+                                                       Text="{Binding VCHRNO}"
+                                                       TextColor="Black"/>
+                                                <StackLayout Grid.Row="0"
+                                                             Grid.Column="1"
+                                                             Orientation="Horizontal">
+                                                    <Label Text="Rs: "
+                                                           TextColor="Black"/>
+                                                    <Label Text="{Binding Amount}" 
+                                                           TextColor="Black"/>
+                                               
+                                                </StackLayout>
+                                                <Label Grid.Row="1"
+                                                       Grid.Column="0" 
+                                                       Text="Branch:" />
+                                                <Label Grid.Row="1"
+                                                       Grid.Column="1" 
+                                                       Text="{Binding Branch}" />
+                                               
+                                               </Grid>
+                                           
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
+                </StackLayout>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

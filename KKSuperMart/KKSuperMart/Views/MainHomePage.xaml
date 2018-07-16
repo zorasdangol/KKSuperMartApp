@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             x:Class="KKSuperMart.Views.MainHomePage"
+             xmlns:views="clr-namespace:KKSuperMart.Views"
+             xmlns:controls="clr-namespace:KKSuperMart.Helpers"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+            >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType ="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="White"></Setter>
+                <Setter Property="BarTextColor" Value="Green"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary"
+                     Icon="couponGreen.png" 
+                     Text="Coupons"
+                     Command="{Binding CouponsCommand}"
+                     
+                     /> 
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Margin="1" 
+                     Padding="0"
+                     BackgroundColor="White"
+                     >
+            <Grid VerticalOptions="FillAndExpand"
+                  Padding="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <views:AdvertisementPage x:Name="advertisementView" Grid.Row="0"/>
+
+                <StackLayout Grid.Row="1" 
+                             Orientation="Vertical"
+                             VerticalOptions="FillAndExpand"
+                             HorizontalOptions="FillAndExpand">
+                  
+                    <ListView ItemsSource="{Binding Promotions}"
+                              HasUnevenRows="true"
+                              IsPullToRefreshEnabled="true"
+                              RefreshCommand="{Binding RefreshCommand}"
+                              IsRefreshing="{Binding IsRefreshing}"
+                              >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                   <StackLayout Orientation="Vertical"
+                                                 VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="FillAndExpand"
+                                                 Margin="1">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Source="layerGreen.png"
+                                                   Margin="1"/>
+                                            <Label Text="{Binding _id.CNAME}" 
+                                               FontSize="Large"
+                                               TextColor="Green"
+                                               Margin="1"/>
+                                        </StackLayout>
+                                        
+                                        <!--<Frame BorderColor="Maroon" HasShadow="false" CornerRadius="5">-->
+
+                                            <syncfusion:SfListView x:Name="listView" 
+                                                                   Orientation="Horizontal"
+                                                                   ItemsSource="{Binding products}" 
+                                                                   ItemSize="175"
+                                                                   HeightRequest="250"
+                                                                   WidthRequest="200"
+                                                                   ItemSpacing="1"
+                                                                   Margin="1"
+                                                                   Padding="0"
+                                                                   >
+                                                <syncfusion:SfListView.ItemTemplate>
+                                                    <DataTemplate>
+                                                    <Frame BorderColor="Gray" HasShadow="True" 
+                                                           Padding="10">
+                                                        <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="7*"/>
+                                                            <RowDefinition Height="2*"/>
+                                                            <RowDefinition Height="*"/>
+
+                                                        </Grid.RowDefinitions>
+
+                                                        <Image Aspect="AspectFit"
+                                                               Grid.Row="0"
+                                                               HorizontalOptions="Center" >
+                                                            <Image.Source>
+                                                                <UriImageSource Uri="{Binding IMAGEURL}" 
+                                                                            CacheValidity="14" 
+                                                                            CachingEnabled="true"/>
+                                                            </Image.Source>
+                                                        </Image>
+                                                    
+                                                        <Label Grid.Row="1" 
+                                                               VerticalOptions="Start"
+                                                               HorizontalOptions="CenterAndExpand"
+                                                               Text="{Binding DESCRIPTION}" 
+                                                               FontAttributes="Bold"
+                                                               Margin="0"
+                                                               FontSize="Small"/>
+                                                        <Label Grid.Row="2" 
+                                                               VerticalOptions="Start"
+                                                               HorizontalOptions="CenterAndExpand"
+                                                               Text="{Binding MESSAGE}" 
+                                                               Margin="0"
+                                                               FontSize="Small"
+                                                              />
+                                                    </Grid>
+                                                    </Frame>
+                                                </DataTemplate>
+                                                </syncfusion:SfListView.ItemTemplate>
+                                            </syncfusion:SfListView>
+
+                                            <!--<cv:CarouselView  ItemsSource="{Binding products}"
+                                                          HeightRequest="200"
+                                                          Margin="3">
+                                            <cv:CarouselView.ItemTemplate>
+                                              <DataTemplate>
+                                                <Grid>
+                                                        <Grid.RowDefinitions>
+                                                        <RowDefinition Height="150"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                                        
+                                                        </Grid.RowDefinitions>
+
+                                                             <Image Aspect="AspectFill" 
+                                                                    VerticalOptions="Center"
+                                                                    HorizontalOptions="Center" > 
+                                                                    <Image.Source>
+                                                                        <UriImageSource Uri="{Binding IMAGEURL}" 
+                                                                            CacheValidity="14" 
+                                                                            CachingEnabled="true"/>
+                                                                    </Image.Source>
+                                                              </Image>
+                                                        --><!--<Image Grid.Row="0" Aspect="AspectFit" 
+                                                               Source="{Binding IMAGEURL}" 
+                                                               VerticalOptions="Center"
+                                                               HorizontalOptions="Center"/>--><!--
+                                                        <Label Grid.Row="1" 
+                                                               HorizontalOptions="CenterAndExpand"
+                                                               VerticalOptions="CenterAndExpand"
+                                                               Text="{Binding DESCRIPTION}" 
+                                                               FontSize="Medium"/>
+                                                        <Label Grid.Row="2" 
+                                                               HorizontalOptions="CenterAndExpand"
+                                                               VerticalOptions="CenterAndExpand"
+                                                               Text="{Binding MESSAGE}" 
+                                                               FontSize="Small"/>
+                                                </Grid>
+                                              </DataTemplate>
+                                            </cv:CarouselView.ItemTemplate>
+                                        </cv:CarouselView>-->
+                                        <!--</Frame>-->
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
+                </StackLayout>
+           
+            </Grid>
+             <Grid HorizontalOptions="FillAndExpand"
+                   Padding="0"
+                   VerticalOptions="FillAndExpand"                   
+                   Margin="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                <Button Grid.Column="0"
+                        Text="Purchase List"
+                        VerticalOptions="StartAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="1"
+                        ContentLayout="Top,0"
+                        HeightRequest="100"
+                        Image="purchaseListGreen.png"
+                        BackgroundColor="White"
+                        TextColor="Green"
+                        BorderColor="Gray"
+                        FontSize="Small"
+                        BorderWidth="1"
+                        Command="{Binding PurchaseListCommand}"
+                            />
+                <Button Grid.Column="1"
+                        Text="My Points"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand"
+                        ContentLayout="Top,0"
+                        HeightRequest="100"
+                        Image="myPointsGreen.png"
+                        BackgroundColor="White"
+                        BorderColor="Gray"
+                        TextColor="Green"
+                        BorderWidth="1"
+                        FontSize="Small"
+                        Margin="1"
+                            Command="{Binding MyPointsCommand}">
+                </Button>
+            </Grid>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

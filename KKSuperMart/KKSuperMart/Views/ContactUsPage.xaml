@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KKSuperMart.Views.ContactUsPage"
+             Title="Contact Us">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor"
+                    Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" BackgroundColor="{StaticResource orangeColor}"
+                     Padding="15">
+            <Label Text="Contact Us" 
+                   HorizontalTextAlignment="Start" 
+                   FontAttributes="Bold" 
+                   FontSize="Large"
+                   Margin="10"/>
+           
+            <StackLayout Orientation="Horizontal">
+                <Image Source="companyProfileWhite.png"
+                       HeightRequest="25"
+                   />
+                <Label x:Name="CompanyName"
+                       HorizontalTextAlignment="Start" 
+                       FontAttributes="Bold" 
+                       FontSize="Medium"
+                       Margin="10"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal" >
+                <Image Source="locationWhite.png"
+                       HeightRequest="25"
+                   />
+                <Label x:Name="Address"
+                       HorizontalTextAlignment="Start" 
+                       FontAttributes="Bold" 
+                       FontSize="Medium"
+                       Margin="10"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" >
+                <Image Source="phoneWhite.png"
+                       HeightRequest="25"
+                   />
+                <Label x:Name="Phone"
+                       HorizontalTextAlignment="Start" 
+                       FontAttributes="Bold" 
+                       FontSize="Medium"
+                       Margin="10"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="mailWhite.png"
+                       HeightRequest="25"
+                   />
+                <Label x:Name="Email"
+                       HorizontalTextAlignment="Start" 
+                       FontAttributes="Bold" 
+                       FontSize="Medium"
+                       Margin="10"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="webWhite.png"
+                       HeightRequest="25"
+                   />
+                <Label x:Name="Website"
+                       HorizontalTextAlignment="Start" 
+                       FontAttributes="Bold" 
+                       FontSize="Medium"
+                       Margin="10"/>
+            </StackLayout>
+
+
+           
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

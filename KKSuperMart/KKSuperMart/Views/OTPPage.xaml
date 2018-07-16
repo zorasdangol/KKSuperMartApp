@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="KKSuperMart.Views.OTPPage">
+    <ContentPage.Content>
+        <Frame OutlineColor="Blue"
+               Margin="15"
+               Padding="5"
+               CornerRadius="5"
+               VerticalOptions="Center"
+               BackgroundColor="Gray">
+            <StackLayout Margin="10" 
+                         Padding="5">
+                <Label Text="Enter Code here"/>
+                <Entry Text="{Binding DeviceToken.otp}"
+                       Keyboard="Numeric"/>
+                <Button Text="CONFIRM"
+                        Command="{Binding ConfirmCommand}"/>
+                <Label Text="If confirmation code not received, please retry"/>
+                <Button Text="RESEND" 
+                        Command="{Binding ReSendCommand}"/>
+                <Button Text="BACK" 
+                        Command="{Binding BackCommand}"/>
+                
+            </StackLayout>
+         </Frame>
+    </ContentPage.Content>
+</ContentPage>

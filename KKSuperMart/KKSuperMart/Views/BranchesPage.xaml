@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="KKSuperMart.Views.BranchesPage"
+             xmlns:views="clr-namespace:KKSuperMart.Views"
+             Title="Branches"
+             >
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource orangeColor}">
+             <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+
+                <views:AdvertisementPage Grid.Row="0"/>
+                <StackLayout Grid.Row="1" 
+                             Padding="5"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand">
+                  
+                    <ListView x:Name="BranchListName"
+                              ItemsSource="{Binding BranchesList}"
+                              HasUnevenRows="true"
+                              ItemSelected="Branch_ItemSelected"
+                              SeparatorVisibility="None"
+                              BackgroundColor="{StaticResource orangeColor}"
+                              >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame OutlineColor="Transparent"
+                                           BackgroundColor="White"
+                                           HasShadow="false"
+                                           Margin="10"
+                                           Padding="5"
+                                           CornerRadius="10"
+                                           >
+                                        <StackLayout Orientation="Horizontal" x:Name="Item">
+                                          
+                                               <Grid HorizontalOptions="FillAndExpand">
+                                                <Grid.ColumnDefinitions >
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="2*"/>
+                                                   
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <!--<RowDefinition Height="Auto"/>-->
+                                                    <!--<RowDefinition Height="Auto"/>-->
+                                                </Grid.RowDefinitions>
+
+                                                <Image Grid.Row="0"
+                                                       Grid.Column="0"
+                                                       Margin="1"
+                                                       HeightRequest="40"
+                                                       Source="icon.png"
+                                                       Aspect="AspectFit"
+                                                       />
+                                                <StackLayout Grid.Row="0"
+                                                             Grid.Column="1" 
+                                                             Orientation="Vertical" 
+                                                             HorizontalOptions="Start"
+                                                             Padding="10">
+                                                    <Label Text="{Binding NAME}" 
+                                                           TextColor="Black"
+                                                           FontSize="Medium" 
+                                                           FontAttributes="Bold"/>
+
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="location.png" HeightRequest="10"/>
+                                                        <Label Text="{Binding ADDRESS}"
+                                                           TextColor="Green"/>
+                                                    </StackLayout>
+
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="phone.png" HeightRequest="10"/>
+                                                        <Label x:Name="contactLabel"
+                                                           Text="{Binding CONTACT_NO}"
+                                                              FontSize="Medium"
+                                                           TextColor="Green">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding ContactCommand}"
+                                                                                  CommandParameter="{Binding Source={x:Reference contactLabel},Path=Text}"
+                                                                                  BindingContext="{Binding Source={x:Reference BranchListName}, Path=BindingContext}">
+                                                                </TapGestureRecognizer>
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                    </StackLayout>
+                                                   
+
+                                                    <!--<Button Text="Call"
+                                                            Command="{Binding ContactCommand}"
+                                                            CommandParameter="{Binding Source={x:Reference contactLabel},Path=Text}"
+                                                            BindingContext="{Binding Source={x:Reference BranchListName}, Path=BindingContext}"
+                                                            WidthRequest="70"
+                                                            HorizontalOptions="Start"/>-->
+                                                </StackLayout>
+                                               </Grid>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
+                </StackLayout>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

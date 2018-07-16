@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="KKSuperMart.Views.InquiryPage"
+             Title="Inquiry"
+             BackgroundColor="{StaticResource orangeColor}" 
+             Padding="10">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ScrollView  AbsoluteLayout.LayoutFlags="All"
+                         AbsoluteLayout.LayoutBounds="0,1,1,1"
+                         VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical"
+                         VerticalOptions="FillAndExpand"
+                         >
+                    <Image x:Name="selectedImage"
+                       Aspect="AspectFit"/>
+                    <Button Text="Select Picture"
+                            BackgroundColor="{StaticResource greenColor}"
+                            TextColor="White"
+                            Clicked="Handle_Clicked"/>
+                    <Frame OutlineColor="{StaticResource greenColor}"
+                           HasShadow="false"
+                           CornerRadius="5"
+                           Margin="5"
+                           HeightRequest="200">
+                        <ScrollView>
+                            <Editor x:Name="messageEditor"
+                                    Margin="5"
+                                    Focused="MyEditor_Focused" 
+                                    Unfocused="MyEditor_Unfocused"
+                                    Text="{Binding Feedback.Message}"/>
+                        </ScrollView>
+                    </Frame>
+                    <Button Text="Submit"
+                            BackgroundColor="{StaticResource greenColor}"
+                            TextColor="White"
+                            Command="{Binding SubmitCommand}"/>
+
+
+
+                </StackLayout>
+            </ScrollView>
+            <Button HeightRequest="70"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds="1,0.95,-1,-1"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Image="feedbackImage.png"
+                    WidthRequest="70"                        
+                    BackgroundColor="{StaticResource greenColor}"
+                    Command="{Binding ChatCommand}"
+                    CornerRadius="35"/>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

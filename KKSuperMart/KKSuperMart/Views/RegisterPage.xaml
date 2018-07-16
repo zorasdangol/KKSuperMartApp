@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="KKSuperMart.Views.RegisterPage"
+
+           >
+    <ContentPage.Content>
+        <Frame Margin="15"
+               CornerRadius="5"
+               OutlineColor="Black">
+            <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Entry Placeholder="Email*"
+                       Text="{Binding MemberDetails.email}"
+                       Keyboard="Email"/>
+                <Entry Placeholder="Mobile Number*"
+                       Text="{Binding MemberDetails.mob}"
+                       Keyboard="Numeric"/>
+                <Entry Placeholder="Member Id(Only for old Users)"
+                       Text="{Binding MemberDetails.memid}"
+                       Keyboard="Numeric"/>
+                <Entry Placeholder="First Name*"
+                       Text="{Binding MemberDetails.fname}"
+                       />
+                <Entry Placeholder="Last Name*"
+                       Text="{Binding MemberDetails.lname}"
+                       />
+                <Entry Placeholder="House Number"
+                       Text="{Binding MemberDetails.add.hno}"
+                       Keyboard="Numeric"/>
+                <Entry Placeholder="Street*"
+                       Text="{Binding MemberDetails.add.street}"
+                       />
+                <Entry Placeholder="Tole*"
+                       Text="{Binding MemberDetails.add.tole}"
+                       />
+                <Entry Placeholder="District*"
+                       Text="{Binding MemberDetails.add.dist}"
+                       />
+                <Entry Placeholder="Zone*"
+                       Text="{Binding MemberDetails.add.zone}"
+                       />
+                <DatePicker MinimumDate="1990-1-1"
+                            MaximumDate="2050-12-12"
+                            Date="{Binding MemberDetails.dob}"
+                            />
+                <Picker Title="Sex*"
+                        SelectedItem="{Binding MemberDetails.sex}"
+                       >
+                    <Picker.Items>
+                        <x:String>Male</x:String>
+                        <x:String>Female</x:String>
+                        <x:String>Others</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Button Text="Submit"
+                        Command="{Binding SubmitCommand}"
+                        />
+                <Button Text="Back"
+                        Command="{Binding BackCommand}"
+                        />
+
+                </StackLayout>
+            </ScrollView>
+         </Frame>
+    </ContentPage.Content>
+</ContentPage>

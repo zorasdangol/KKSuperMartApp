@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KKSuperMart.Views.InquiryHistoryPage"
+             BackgroundColor="{StaticResource orangeColor}"
+             Title="Inquiry History"             
+             Padding="10">
+    <ContentPage.Content>
+        <ScrollView>
+
+            <StackLayout Padding="5" Orientation="Vertical">
+                <ListView ItemsSource="{Binding ChatMessages}"
+                          HasUnevenRows="true"
+                          SeparatorVisibility="None"
+                          IsEnabled="False"
+                          BackgroundColor="{StaticResource orangeColor}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal"
+                                                 HorizontalOptions="EndAndExpand"
+                                                 Margin="10"
+                                                 IsVisible="{Binding QUERY,Converter={StaticResource vc}}">
+
+                                        <Frame BackgroundColor="{StaticResource greenColor}"   
+                                               OutlineColor="Transparent"
+                                               CornerRadius="15"
+                                               HasShadow="False"
+                                               Padding="5"> 
+                                            <Label Text="{Binding QUERY}"
+                                                   TextColor="White"/>
+                                        </Frame>
+                                        <Button BackgroundColor="{StaticResource greenColor}"
+                                                HeightRequest="40"
+                                                WidthRequest="40"
+                                                CornerRadius="20"
+                                                VerticalOptions="End"
+                                                Text="S"
+                                                TextColor="White" 
+                                        />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal"
+                                                 HorizontalOptions="StartAndExpand"
+                                                 Margin="10"
+                                                 IsVisible="{Binding REPLY,Converter={StaticResource vc}}">
+                                        <Button BackgroundColor="MediumPurple"
+                                                HeightRequest="40"
+                                                WidthRequest="40"
+                                                CornerRadius="20"
+                                                VerticalOptions="End"
+                                                Text="K"
+                                                TextColor="White" 
+                                        />
+
+                                        <Frame BackgroundColor="MediumPurple"   
+                                               OutlineColor="Transparent"
+                                               HasShadow="False"
+                                               CornerRadius="15"
+                                               Padding="5">
+                                            <Label Text="{Binding REPLY}"
+                                                   TextColor="White"/>
+                                        </Frame>
+                                    </StackLayout>
+                                </StackLayout>
+                           
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+            </ListView>
+            
+           
+        </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

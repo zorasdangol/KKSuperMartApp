@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KKSuperMart.Views.MyProfilePage"
+             Title="My Profile"
+             BackgroundColor="{StaticResource orangeColor}">
+    <ContentPage.Content>
+        <Frame Margin="5"
+               CornerRadius="5"
+               OutlineColor="Black">
+            <ScrollView>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Email :"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                    <Entry Placeholder="Email*"
+                           Text="{Binding MemberDetails.email}"
+                           Keyboard="Email"
+                           TextColor="Gray"
+                           IsEnabled="False"/>
+                    <Label Text="Mobile :"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                    <Entry Placeholder="Mobile Number*"
+                           Text="{Binding MemberDetails.mob}"
+                           Keyboard="Numeric"
+                           TextColor="Gray"
+                           IsEnabled="False"/>
+                    <Label Text="First Name :"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                    <Entry Placeholder="First Name*"
+                           Text="{Binding MemberDetails.fname}"/>
+                    <Label Text="Last Name :"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                    <Entry Placeholder="Last Name*"
+                           Text="{Binding MemberDetails.lname}"/>
+                    <Label Text="House Number :"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                    <Entry Placeholder="House Number"
+                           Text="{Binding MemberDetails.add.hno}"
+                           Keyboard="Numeric"/>
+                    <Label Text="Street :"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                    <Entry Placeholder="Street*"
+                           Text="{Binding MemberDetails.add.street}"/>
+                    <Label Text="Tole :"
+                           FontSize="Medium"/>
+                    <Entry Placeholder="Tole*"
+                           Text="{Binding MemberDetails.add.tole}"/>
+                    <Label Text="District :"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                    <Entry Placeholder="District*"
+                       Text="{Binding MemberDetails.add.dist}"/>
+                    <Label Text="Zone :"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                    <Entry Placeholder="Zone*"
+                       Text="{Binding MemberDetails.add.zone}"/>
+                    <Label Text="Date of Birth :"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                    <DatePicker MinimumDate="1990-1-1"
+                            MaximumDate="2050-12-12"
+                            Date="{Binding MemberDetails.dob}"/>
+
+                    <Label Text="Sex :"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                    <Picker Title="Sex*"
+                            SelectedItem="{Binding MemberDetails.sex}">
+                        <Picker.Items>
+                            <x:String>Male</x:String>
+                            <x:String>Female</x:String>
+                            <x:String>Others</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Button Text="Submit"
+                        Command="{Binding SubmitCommand}"
+                        />
+                    <Button Text="Back" 
+                        Command="{Binding BackCommand}"/>
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

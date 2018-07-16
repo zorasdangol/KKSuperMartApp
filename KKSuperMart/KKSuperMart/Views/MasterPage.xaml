@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" 
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+                  x:Class="KKSuperMart.Views.MasterPage" 
+                  IsGestureEnabled="true"
+                  >
+
+    <MasterDetailPage.Master >
+        <ContentPage Padding="0"
+                     Title="Master"
+                     Icon="master.png">
+            <ContentPage.Content>
+                <StackLayout Orientation="Vertical"
+                             BackgroundColor="{StaticResource orangeColor}"
+                             Margin="0,0,0,0"
+                             Padding="0"
+                             >
+                    <AbsoluteLayout>
+                        <Image Source="menuImage.png"
+                                AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                                AbsoluteLayout.LayoutFlags="All"
+                               VerticalOptions="FillAndExpand"
+                                Aspect="Fill"/>
+                        <Label AbsoluteLayout.LayoutBounds="0.25,0.5,0.25,0.5"
+                               AbsoluteLayout.LayoutFlags="All"
+                               FontSize="Large"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               Text="{Binding FirstLetter}"/>
+                        <StackLayout AbsoluteLayout.LayoutBounds="0.7,0.99,0.90,0.45" 
+                                     VerticalOptions="FillAndExpand"
+                                     AbsoluteLayout.LayoutFlags="All" 
+                                     BackgroundColor="Transparent"
+                                     Margin="0"
+                                     Padding="0">
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="StartAndExpand"
+                                         Padding="0">
+                                
+                                <Label Text="{Binding MemberDetails.fname}"
+                                       FontAttributes="Bold"
+                                       TextColor="White"
+                                       FontSize="Large"/>
+                                <Label Text="{Binding MemberDetails.lname}"
+                                       TextColor="White"
+                                       FontAttributes="Bold"
+                                       FontSize="Large"/>
+                            </StackLayout>
+                            <Label Text="{Binding MemberDetails.mob}"
+                                   HorizontalOptions="StartAndExpand"
+                                   TextColor="White"
+                                   FontSize="Large"/>
+                        </StackLayout>
+                    </AbsoluteLayout>
+                    <ListView ItemsSource="{Binding MenuList}" 
+                              ItemSelected="Handle_ItemSelected"
+                              BackgroundColor="{StaticResource orangeColor}"
+                              Margin="5"
+                              SeparatorVisibility="{Binding IsSeperatorVisible}"
+                              >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                     <ViewCell >
+                                            <StackLayout Orientation="Horizontal" Padding="5">
+                                                <Image Source="{Binding IconSource}"
+                                                       Margin="5"/>
+                                                <Label Text="{Binding Name}" 
+                                                       HorizontalTextAlignment="Start"
+                                                       TextColor="White"
+                                                       FontSize="Medium"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       Margin="5"/>
+                                            </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <ContentPage Padding="5"  >
+                    <ContentPage.Content >
+                        <Label Text="This is Detail Page"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="Center"/>
+                    </ContentPage.Content>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

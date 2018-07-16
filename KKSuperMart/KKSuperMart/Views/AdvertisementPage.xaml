@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="KKSuperMart.Views.AdvertisementPage"
+             xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             VerticalOptions="FillAndExpand"
+             HorizontalOptions="FillAndExpand"
+             BackgroundColor="White"
+             >
+
+    <Grid VerticalOptions="FillAndExpand"
+          HorizontalOptions="FillAndExpand">
+        <Image HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"
+               Aspect="AspectFit"
+               Source="errorQR.png"/>
+       
+    <cv:CarouselView ItemsSource="{Binding Advertisements}" 
+                                  x:Name="CarouselAdvertisements"
+                                  >
+        <cv:CarouselView.ItemTemplate>
+
+            <DataTemplate>
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Image Aspect="AspectFit" 
+                                 x:Name="AdvertisementImage"
+                                 >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AdClicked}"
+                                                          CommandParameter="{Binding Source={x:Reference websiteName},Path=Text}"
+                                                          BindingContext="{Binding Source={x:Reference CarouselAdvertisements}, Path=BindingContext}"
+                                                            />
+                        </Image.GestureRecognizers>
+                        <Image.Source>
+                            <UriImageSource Uri="{Binding IMAGEURL}" 
+                                        CacheValidity="14" 
+                                        CachingEnabled="true"
+                                                    />
+                        </Image.Source>
+                    </Image>
+                    <Label x:Name="websiteName"
+                                 TextColor="White" 
+                                 Text="{Binding WEBSITE}" 
+                                 BackgroundColor="Black"
+                                 FontSize="Small" 
+                                 VerticalOptions="End"
+                                 HorizontalTextAlignment="Center"/>
+
+                </Grid>
+            </DataTemplate>
+        </cv:CarouselView.ItemTemplate>
+    </cv:CarouselView>
+    </Grid>
+    <!--<Grid VerticalOptions="FillAndExpand"
+          HorizontalOptions="FillAndExpand">
+        <Image HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"
+               Aspect="AspectFit"
+               Source="errorQR.png"/>--><!--
+        <cv:CarouselView ItemsSource="{Binding Advertisements}" 
+                         x:Name="CarouselAdvertisements">
+            <cv:CarouselView.ItemTemplate>
+                <DataTemplate>
+                     <Frame CornerRadius="5"
+                           Padding="1"
+                           OutlineColor="LightGray"
+                           HasShadow="True">
+                            <StackLayout >
+                                <Image Aspect="Fit" 
+                                   HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="FillAndExpand"
+                                   x:Name="AdvertisementImage">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding AdClicked}"
+                                                              CommandParameter="{Binding Source={x:Reference websiteName},Path=Text}"
+                                                              BindingContext="{Binding Source={x:Reference CarouselAdvertisements}, Path=BindingContext}"
+                                                                />
+                                    </Image.GestureRecognizers>
+                                    <Image.Source>
+                                        <UriImageSource Uri="{Binding IMAGEURL}" 
+                                                            CacheValidity="14" 
+                                                            CachingEnabled="true"/>
+                                    </Image.Source>
+                                </Image>
+                                <Label x:Name="websiteName"
+                               TextColor="White" 
+                               Text="{Binding WEBSITE}" 
+                               BackgroundColor="Black"
+                               FontSize="Small" 
+                               VerticalOptions="End"
+                               HorizontalTextAlignment="Center"/>
+
+                            </StackLayout>
+                        </Frame>
+        
+                </DataTemplate>
+            </cv:CarouselView.ItemTemplate>
+        </cv:CarouselView>
+    --><!--</Grid>-->
+</StackLayout>
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="KKSuperMart.Views.CompanyProfilePage"
+             Title="Company Profile">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor"
+                    Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Margin="0"
+                     Padding="10"
+                     BackgroundColor="{StaticResource orangeColor}">
+        <Label Text="About:"
+               HorizontalOptions="StartAndExpand"
+               FontSize="Large"
+               FontAttributes="Bold"/>
+        <Label Text="KK Super Mart is a Nepali Retail store that operates as a chain of supermarkets and grocery stores." 
+               FontSize="Medium"
+               HorizontalOptions="FillAndExpand"
+               LineBreakMode="WordWrap"/>
+        <Label Text="The retail chain was founded by Mr. Umesh Chandra Rai in 2012 under its parent company Yeti Airlines"
+               FontSize="Medium"
+               HorizontalOptions="FillAndExpand"
+               LineBreakMode="WordWrap"
+               />
+        <Label Text="Group which is known for having a significant prominence in Nepali retail and Grocery sectors." 
+               FontSize="Medium"
+               HorizontalOptions="FillAndExpand"
+               LineBreakMode="WordWrap"/>
+        <Label Text="At a KK Super Mart, You will definitely get the best products at the lowest price - that's what we guarantee."
+               LineBreakMode="WordWrap"
+               HorizontalOptions="FillAndExpand"
+               FontSize="Medium"
+               />
+        <Label Text="With the ever-increasing array of private labels, it has opened doors from 7:00 am to 11:00 pm, 7 days per week and offer a full range of +15,000 products that will surprise you. "
+               LineBreakMode="WordWrap"
+               HorizontalOptions="FillAndExpand"
+               FontSize="Medium"
+               />
+        <Label Text="And this is just the beginning. KK SuperMart plans to add much more to complete your shopping experience."
+               HorizontalOptions="FillAndExpand"
+               FontSize="Medium"
+               />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

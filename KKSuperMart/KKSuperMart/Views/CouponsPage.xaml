@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+           x:Class="KKSuperMart.Views.CouponsPage"
+           xmlns:views="clr-namespace:KKSuperMart.Views"
+           BackgroundColor="Orange"
+           
+           Title="Coupons"
+           >
+    <ContentPage.Resources>
+        <!--<ResourceDictionary>
+            <con:VisibilityConverter x:Key="vc"/>
+            <con:InVisibilityConverter x:Key="ivc"/>
+            <con:StringConverter x:Key="StringConverter"/>
+        </ResourceDictionary>-->
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource orangeColor}">
+             
+             <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+
+                <views:AdvertisementPage Grid.Row="0"/>
+                <Frame Margin="20"
+                       Grid.Row="1"
+                       HasShadow="False"
+                       CornerRadius="10"
+                       OutlineColor="LightGray"
+                       HeightRequest="100"
+                       VerticalOptions="Start"
+                       HorizontalOptions="FillAndExpand"
+                       BackgroundColor="LightGray"
+                       IsVisible="{Binding ItemCount, Converter={StaticResource ivc}}">
+                    <StackLayout HeightRequest="80">
+                        <Image Source="warning.png" HeightRequest="80"/>
+                        <Label Text="No coupons to display"
+                               HorizontalTextAlignment="Center"
+                               FontSize="Large"/>
+                    </StackLayout>
+                </Frame>
+                <ListView Grid.Row="1"
+                          ItemsSource="{Binding Coupons}"
+                          HasUnevenRows="true"
+                          ItemSelected="Handle_ItemSelected"
+                          RefreshCommand="{Binding RefreshCommand}"
+                          IsRefreshing="{Binding IsRefreshing}"
+                          BackgroundColor="{StaticResource orangeColor}"
+                          SeparatorVisibility="None"
+                          >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame OutlineColor="Gray"
+                                           HasShadow="false"
+                                           Margin="10"
+                                           Padding="10"
+                                           CornerRadius="5"
+                                           >
+                                    <Image Source="couponGreen.png" />
+                                    <Grid Margin="5">
+                                        <Grid.ColumnDefinitions >
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="3*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding couponName}" FontSize="Small"/>
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding couponNo}" FontSize="Small"/>
+                                        <Label Grid.Row="1" Grid.Column="0" Text="Coupon Value:" FontSize="Small"/>
+                                        
+                                        <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                                            <Label Text="Rs: " FontSize="Small"/>
+                                            <Label Text="{Binding value}" FontSize="Small"/>
+                                        </StackLayout>
+                                        <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                                            <Label Text="Expiry Date: "
+                                                   TextColor="Gray"
+                                                   FontSize="Micro"/>
+                                            <Label Text="{Binding expiryDate,Converter={StaticResource dc}}"  
+                                                   TextColor="Gray"
+                                                   FontSize="Micro"/>
+                                        </StackLayout>
+                                    </Grid>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="KKSuperMart.Views.BillNumberPage"
+             xmlns:views="clr-namespace:KKSuperMart.Views"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout Margin="2"
+                     VerticalOptions="FillAndExpand">
+            
+             <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+
+                <views:AdvertisementPage Grid.Row="0"/>
+                <Grid Grid.Row="1"
+                      VerticalOptions="FillAndExpand">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Grid Grid.Row="0" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Frame Grid.Row="0" 
+                               Padding="5"
+                               Margin="5"
+                               BorderColor="Black"
+                               HasShadow="false">
+                            <StackLayout> 
+                                <Grid Margin="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Text="SNo" FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="End" />
+                                    <Label Grid.Column="1" Text="Particulars" FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+                                    <Label Grid.Column="2" Text="Rate" FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+                                    <Label Grid.Column="3" Text="Qnty" FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+                                    <Label Grid.Column="4" Text="Amt" FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                        <ListView Grid.Row="1" 
+                                  ItemsSource="{Binding BillItems}"
+                                  HeightRequest="200"
+                                  Margin="10">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                      <Grid Margin="5">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="4*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label  Grid.Column="0" Text="{Binding SNo}" FontSize="Small" HorizontalTextAlignment="Center"/>
+                                            <Label  Grid.Column="1" Text="{Binding DESCA}" FontSize="Small" HorizontalTextAlignment="End"/>
+                                            <Label  Grid.Column="2" Text="{Binding RATE}" FontSize="Small" HorizontalTextAlignment="End"/>
+                                            <Label  Grid.Column="3" Text="{Binding Quantity}" FontSize="Small" HorizontalTextAlignment="End"/>
+                                            <Label  Grid.Column="4" Text="{Binding AMOUNT}" FontSize="Small" HorizontalTextAlignment="End"/>
+                                          
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                    <Frame Grid.Row="1" Margin="5">
+                       <ScrollView>
+                         <Grid HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0"  FontAttributes="Bold" HorizontalOptions="End"  Text="Total: "/>
+                            <Label Grid.Row="0" Grid.Column="1"  FontAttributes="Bold" HorizontalOptions="End"  Text="{Binding BillTotal.TOTAMNT}"/>
+                            <Label Grid.Row="1" Grid.Column="0"  FontAttributes="Bold" HorizontalOptions="End"  Text="Discount: "/>
+                            <Label Grid.Row="1" Grid.Column="1"  FontAttributes="Bold" HorizontalOptions="End"  Text="{Binding BillTotal.DCAMT}"/>
+                            <Label Grid.Row="2" Grid.Column="0"  FontAttributes="Bold" HorizontalOptions="End"  Text="Taxable: "/>
+                            <Label Grid.Row="2" Grid.Column="1"  FontAttributes="Bold" HorizontalOptions="End"  Text="{Binding BillTotal.TAXABLE}"/>
+                            <Label Grid.Row="3" Grid.Column="0"  FontAttributes="Bold" HorizontalOptions="End"  Text="Non Taxable: "/>
+                            <Label Grid.Row="3" Grid.Column="1"  FontAttributes="Bold" HorizontalOptions="End"  Text="{Binding BillTotal.NONTAXABLE}"/>
+                            <Label Grid.Row="4" Grid.Column="0"  FontAttributes="Bold" HorizontalOptions="End"  Text="VAT: "/>
+                            <Label Grid.Row="4" Grid.Column="1"  FontAttributes="Bold" HorizontalOptions="End"  Text="{Binding BillTotal.VATAMNT}"/>
+                            <Label Grid.Row="5" Grid.Column="0"  FontAttributes="Bold" HorizontalOptions="End"  Text="Net Amount: "/>
+                            <Label Grid.Row="5" Grid.Column="1"  FontAttributes="Bold" HorizontalOptions="End"  Text="{Binding BillTotal.NETAMNT}"/>
+                        </Grid>
+                      </ScrollView>
+                    </Frame>
+
+                </Grid>
+
+             </Grid>
+         </StackLayout>
+                
+    </ContentPage.Content>
+</ContentPage>

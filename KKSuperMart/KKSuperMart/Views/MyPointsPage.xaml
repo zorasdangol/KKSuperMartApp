@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="KKSuperMart.Views.MyPointsPage"
+             xmlns:views="clr-namespace:KKSuperMart.Views"
+             Title="My Points"
+             xmlns:con ="clr-namespace:KKSuperMart.Converters"
+             
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <con:VisibilityConverter x:Key="vc"/>
+            <con:InVisibilityConverter x:Key="ivc"/>
+            <con:PointsInVisibilityConverter x:Key="pivc"/>
+            <con:HideZeroConverter x:Key="hzc"/>
+            <con:StringConverter x:Key="StringConverter"/>
+            <con:ColorConverter x:Key="cc"/>
+            <con:DateConverter x:Key="dc"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="{StaticResource orangeColor}">
+             <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                 
+                <views:AdvertisementPage Grid.Row="0"/>
+                <StackLayout Grid.Row="1" 
+                             Padding="5"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand">
+                 
+                               <!--<Image Source="myPoints.png"
+                                       AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                       AbsoluteLayout.LayoutFlags="All"
+                                        Opacity="0.5"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"/>-->
+                                
+                                <Frame BackgroundColor="#9dc183"
+                                       VerticalOptions="FillAndExpand"
+                                       HasShadow="false"
+                                       OutlineColor="Transparent"
+                                       CornerRadius="10"
+                                       Margin="5,0,5,0"
+                                       Padding="1"
+                                       BorderColor="Transparent">
+                                    <Grid Margin="0" Padding="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="5*"/>
+                                            <ColumnDefinition Width="3*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" Grid.Column="0" TextColor="Black" Margin="15,10,5,5" FontSize="Medium" Text="Points Gained: "/>
+                            <Label Grid.Row="0" Grid.Column="1" TextColor="Black" Margin="15,10,5,5" FontSize="Medium" Text="{Binding MyPoints.totalPointsGained, Converter={StaticResource hzc}}"/>
+                                        <Label Grid.Row="1" Grid.Column="0" TextColor="Black" Margin="15,5" FontSize="Medium" Text="Points Deducted: "/>
+                            <Label Grid.Row="1" Grid.Column="1" TextColor="Black" Margin="15,5" FontSize="Medium" Text="{Binding MyPoints.totalPointsDeducted, Converter={StaticResource hzc}}"/>
+                                        <BoxView Grid.Row="2" Grid.Column="0" HeightRequest="1" BackgroundColor="Black" Margin="0,5,0,5"/>
+                                        <BoxView Grid.Row="2" Grid.Column="1" HeightRequest="1" BackgroundColor="Black" Margin="0,5,0,5"/>
+                                        <Label Grid.Row="3" Grid.Column="0" TextColor="Black"  Margin="15,0,5,10" FontSize="Medium" Text="Remaining Points: "/>
+                            <Label Grid.Row="3" Grid.Column="1" TextColor="Black"  Margin="15,0,5,10" FontSize="Medium" Text="{Binding MyPoints.points}"/>
+                                    </Grid>
+                                </Frame>
+                
+                        <Frame Margin="20"
+                               HasShadow="True"
+                               CornerRadius="10"
+                               OutlineColor="LightGray"
+                               HeightRequest="100"
+                               MinimumHeightRequest="100"
+                               BackgroundColor="LightGray"
+                               IsVisible="{Binding ItemCount, Converter={StaticResource ivc}}">
+                            <StackLayout VerticalOptions="CenterAndExpand"
+                                     HorizontalOptions="CenterAndExpand"
+                                     >
+                                <Image Source="warning.png" HeightRequest="80"/>
+                                <Label Text="No points to display"
+                                   FontSize="Large"/>
+                            </StackLayout>
+                        </Frame>
+                        <ListView ItemsSource="{Binding MyPoints.details}"
+                                  HasUnevenRows="true"
+                                  SeparatorVisibility="None"
+                                  IsPullToRefreshEnabled="true"
+                                  RefreshCommand="{Binding RefreshCommand}"
+                                  IsRefreshing="{Binding IsRefreshing}"
+                                  BackgroundColor="{StaticResource orangeColor}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Frame OutlineColor="Transparent"
+                                               HasShadow="false"
+                                               Margin="10"
+                                               CornerRadius="10"
+                                               Padding="0"
+                                               BackgroundColor="{Binding pointsgained, Converter={StaticResource cc}}"
+                                               >
+                                            <StackLayout Orientation="Vertical" 
+                                                         Margin="15,0,0,0" 
+                                                         Padding="10"
+                                                         BackgroundColor="White">
+                                                <StackLayout Orientation="Horizontal" 
+                                                             HorizontalOptions="End">
+                                                    <Image Source="calender.png"
+                                                           HeightRequest="15"
+                                                           HorizontalOptions="End"/>
+                                                    <Label Text="{Binding trndate,Converter={StaticResource dc}}" 
+                                                            TextColor="Green"
+                                                           FontSize="Small"
+                                                          HorizontalTextAlignment="End"/>
+                                                </StackLayout>
+                                            
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions >
+                                                        <ColumnDefinition Width="3*"/>
+                                                        <ColumnDefinition Width="2*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <Label Grid.Row="0"
+                                                           Grid.Column="0" 
+                                                           Text="{Binding vchrno}" 
+                                                           TextColor="Black"
+                                                           FontSize="Medium"
+                                                           FontAttributes="Bold"/>
+                                                    <StackLayout Grid.Row="0"
+                                                                 Grid.Column="1"
+                                                                 Orientation="Horizontal">
+                                                        <Label Text="Rs: "
+                                                               TextColor="Black"
+                                                               FontSize="Medium"/>
+                                                        <Label Text="{Binding pointableamount}" 
+                                                               TextColor="Black"
+                                                               FontSize="Medium"/>
+
+                                                    </StackLayout>
+                                                </Grid>
+                                                <StackLayout Orientation="Horizontal"
+                                                             HorizontalOptions="FillAndExpand"
+                                                             IsVisible="{Binding pointsgained,Converter={StaticResource pivc}}">
+                                                    <Label Text="Points Gained:" 
+                                                           TextColor="{Binding pointsgained, Converter={StaticResource cc}}"/>
+                                                    <Label Text="{Binding pointsgained}" Margin="60,0,0,0"
+                                                           TextColor="{Binding pointsgained, Converter={StaticResource cc}}"/>
+                                                </StackLayout>
+
+                                                <StackLayout Orientation="Horizontal"
+                                                             HorizontalOptions="FillAndExpand"
+                                                             IsVisible="{Binding pointsdeducted,Converter={StaticResource pivc}}">
+                                                    <Label HorizontalTextAlignment="Start"
+                                                           HorizontalOptions="Start"
+                                                           Text="Points Deducted:" 
+                                                            TextColor="{Binding pointsgained, Converter={StaticResource cc}}"/>
+                                                    <Label Text="{Binding pointsdeducted}" Margin="60,0,0,0"
+                                                           TextColor="{Binding pointsgained, Converter={StaticResource cc}}"/>
+                                                </StackLayout>
+                                            
+                                            </StackLayout>
+                                        </Frame>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                </StackLayout>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

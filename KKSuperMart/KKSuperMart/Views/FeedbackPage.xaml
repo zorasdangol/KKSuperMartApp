@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KKSuperMart.Views.FeedbackPage"
+             xmlns:views="clr-namespace:KKSuperMart.Views"
+             Title="Feedback"
+             BackgroundColor="{StaticResource orangeColor}"
+            >
+    <ContentPage.Content>
+        <StackLayout >
+            <ScrollView>
+                <Grid VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="4*"/>
+                    </Grid.RowDefinitions>
+                    <views:AdvertisementPage Grid.Row="0"/>
+                    <ScrollView Grid.Row="1">
+                        <StackLayout Grid.Row="1"  
+                                     Padding="5">                    
+                            <Frame OutlineColor="{StaticResource greenColor}"
+                                   HasShadow="false"
+                                   CornerRadius="5"
+                                   Margin="5"
+                                   HeightRequest="200">
+                                <ScrollView>
+                                    <Editor x:Name="messageEditor"
+                                            Margin="5"
+                                            Focused="MyEditor_Focused" 
+                                            Unfocused="MyEditor_Unfocused"
+                                            Text="{Binding Feedback.Message}"/>
+                                </ScrollView>
+                            </Frame>
+                            <Button Text="Submit"
+                                    Command="{Binding SubmitCommand}"
+                                    TextColor="White"
+                                    BackgroundColor="{StaticResource greenColor}"/>
+
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

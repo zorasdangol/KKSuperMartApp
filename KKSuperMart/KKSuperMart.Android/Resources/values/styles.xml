@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-
+  <!--<style name="noPaddingButtonStyle" parent="android:Widget.Material.Button">
+    <item name="android:paddingLeft">1dp</item>
+    <item name="android:paddingTop">1dp</item>
+    <item name="android:paddingBottom">1dp</item>
+    <item name="android:paddingRight">1dp</item>
+  </style>-->
   <style name="MainTheme" parent="MainTheme.Base">
   </style>
   <!-- Base theme applied no matter what API -->
@@ -21,10 +26,24 @@
          colorControlHighlight and colorSwitchThumbNormal. -->
     <item name="windowActionModeOverlay">true</item>
 
+    <item name="android:textColorPrimary">#000011</item>
+    <item name="android:textColorSecondary">#000012</item>
     <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
   </style>
 
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
     <item name="colorAccent">#FF4081</item>
   </style>
+
+  <style name="MyTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+  </style>
+
+<style name="Derp" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <item name="android:background">#ffffff</item>
+    <item name="android:foreground">#000000</item>
+    <!--<item name="android:buttonStyle">@style/noPaddingButtonStyle</item>-->
+    <item name="android:textColorPrimary">#000000</item>
+ 
+</style>
 </resources>
