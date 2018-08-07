@@ -27,22 +27,22 @@ namespace KKSuperMart
                 {
                     return new FunctionResponse() { Status = "error", Message = "Please Enter Last Name" };
                 }
-                else if (string.IsNullOrEmpty(MemberDetails.add.street))
-                {
-                    return new FunctionResponse() { Status = "error", Message = "Please Enter Street" };
-                }
-                else if (string.IsNullOrEmpty(MemberDetails.add.tole))
-                {
-                    return new FunctionResponse() { Status = "error", Message = "Please Enter Tole" };
-                }
-                else if (string.IsNullOrEmpty(MemberDetails.add.dist))
-                {
-                    return new FunctionResponse() { Status = "error", Message = "Please Enter district" };
-                }
-                else if (string.IsNullOrEmpty(MemberDetails.add.zone))
-                {
-                    return new FunctionResponse() { Status = "error", Message = "Please Enter zone" };
-                }
+                //else if (string.IsNullOrEmpty(MemberDetails.add.street))
+                //{
+                //    return new FunctionResponse() { Status = "error", Message = "Please Enter Street" };
+                //}
+                //else if (string.IsNullOrEmpty(MemberDetails.add.tole))
+                //{
+                //    return new FunctionResponse() { Status = "error", Message = "Please Enter Tole" };
+                //}
+                //else if (string.IsNullOrEmpty(MemberDetails.add.dist))
+                //{
+                //    return new FunctionResponse() { Status = "error", Message = "Please Enter district" };
+                //}
+                //else if (string.IsNullOrEmpty(MemberDetails.add.zone))
+                //{
+                //    return new FunctionResponse() { Status = "error", Message = "Please Enter zone" };
+                //}
                 else if (string.IsNullOrEmpty(MemberDetails.sex))
                 {
                     return new FunctionResponse() { Status = "error", Message = "Please Select Sex" };

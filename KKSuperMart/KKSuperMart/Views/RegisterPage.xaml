@@ -28,19 +28,20 @@
                 <Entry Placeholder="House Number"
                        Text="{Binding MemberDetails.add.hno}"
                        Keyboard="Numeric"/>
-                <Entry Placeholder="Street*"
+                <Entry Placeholder="Street"
                        Text="{Binding MemberDetails.add.street}"
                        />
-                <Entry Placeholder="Tole*"
+                <Entry Placeholder="Tole"
                        Text="{Binding MemberDetails.add.tole}"
                        />
-                <Entry Placeholder="District*"
+                <Entry Placeholder="District"
                        Text="{Binding MemberDetails.add.dist}"
                        />
-                <Entry Placeholder="Zone*"
+                <Entry Placeholder="Zone"
                        Text="{Binding MemberDetails.add.zone}"
                        />
-                <DatePicker MinimumDate="1990-1-1"
+                    <Label Text="Date of Birth:"/>
+                    <DatePicker MinimumDate="1990-1-1"
                             MaximumDate="2050-12-12"
                             Date="{Binding MemberDetails.dob}"
                             />

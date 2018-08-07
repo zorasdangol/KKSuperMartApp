@@ -28,6 +28,8 @@
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer: BHANU THAPA (NZV926T9N9)</CodesignKey>
+    <CodesignProvision>KKSuperMartDevP</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -38,6 +40,8 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>i386, x86_64</MtouchArch>
     <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Distribution: BHANU THAPA (M693SN3ZD5)</CodesignKey>
+    <CodesignProvision>KKSuperMartPPDistribution</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -64,8 +68,9 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer: BHANU THAPA (NZV926T9N9)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>newKKSuperMartPP</CodesignProvision>
+    <CodesignProvision>KKSuperMartDevP</CodesignProvision>
     <BuildIpa>true</BuildIpa>
+    <OptimizePNGs>true</OptimizePNGs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -104,7 +109,9 @@
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
     <BundleResource Include="GoogleService-Info.plist" />
-    <None Include="Info.plist" />
+    <None Include="Info.plist">
+      <SubType>Designer</SubType>
+    </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork@2x" />
@@ -327,7 +334,7 @@
     <BundleResource Include="Resources\inquiryWhite.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon.png" />
+    <BundleResource Include="Resources\icon-60%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\feedbackWhite.png" />
@@ -421,6 +428,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\designationGreen%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon-60%403x..png" />
   </ItemGroup>
   <Import Project="..\KKSuperMart\KKSuperMart.projitems" Label="Shared" Condition="Exists('..\KKSuperMart\KKSuperMart.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

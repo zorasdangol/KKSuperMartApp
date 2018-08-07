@@ -6,9 +6,8 @@
              Title="Inquiry History"             
              Padding="10">
     <ContentPage.Content>
-        <ScrollView>
-
-            <StackLayout Padding="5" Orientation="Vertical">
+        <StackLayout Padding="5" Orientation="Vertical">
+            <ScrollView>
                 <ListView ItemsSource="{Binding ChatMessages}"
                           HasUnevenRows="true"
                           SeparatorVisibility="None"
@@ -69,11 +68,9 @@
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-            </ListView>
-            
-           
+                </ListView>
+            </ScrollView>
         </StackLayout>
 
-        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

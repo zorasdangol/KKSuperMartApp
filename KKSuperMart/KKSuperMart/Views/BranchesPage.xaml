@@ -54,7 +54,7 @@
                                                        Grid.Column="0"
                                                        Margin="1"
                                                        HeightRequest="40"
-                                                       Source="icon.png"
+                                                       Source="icon-60.png"
                                                        Aspect="AspectFit"
                                                        />
                                                 <StackLayout Grid.Row="0"

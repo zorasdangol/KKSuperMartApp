@@ -20,6 +20,7 @@ namespace KKSuperMart.ViewModels
 
         public MyProfilePageVM()
         {
+            MemberDetails = Helpers.Data.Data.MemberDetails;
             SubmitCommand = new Command(() => ExecuteConfirmCommand());
             BackCommand = new Command(() => ExecuteBackCommand());
         }

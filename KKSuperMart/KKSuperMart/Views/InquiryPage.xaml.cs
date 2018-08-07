@@ -31,6 +31,7 @@ namespace KKSuperMart.Views
             {
                 await CrossMedia.Current.Initialize();
 
+                
                 if (!CrossMedia.Current.IsPickPhotoSupported)
                 {
                     await DisplayAlert("Error", "This is not supported in your device", "OK");
