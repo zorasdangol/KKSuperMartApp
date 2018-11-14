@@ -14,7 +14,7 @@ public class SplashActivity : AppCompatActivity
 
     public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
     {
-        FirebasePushNotificationManager.ProcessIntent(Intent);
+        //FirebasePushNotificationManager.ProcessIntent(Intent);
 
         //Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
         base.OnCreate(savedInstanceState, persistentState);

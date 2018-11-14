@@ -33,7 +33,7 @@ namespace KKSuperMart.Droid
             string fullPath = Path.Combine(folderPath, dbName);
 
             LoadApplication(new App(fullPath));
-            FirebasePushNotificationManager.ProcessIntent(Intent);
+            //FirebasePushNotificationManager.ProcessIntent(Intent);
         }
 
     }
