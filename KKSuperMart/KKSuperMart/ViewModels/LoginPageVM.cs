@@ -71,10 +71,10 @@ namespace KKSuperMart.ViewModels
                 MemberDetails.companyid = Helpers.Data.Constants.CompanyId;
 
                 await LoginApiConnections.SignIn(MemberDetails);
-                //IsLoading = false;
+                IsLoading = false;
                 
             }
-            catch (Exception e) { await App.Current.MainPage.DisplayAlert("Error", "Cannot Connect to Server:\n" + e.Message, "Ok"); }        
+            catch (Exception e) { IsLoading = false; await App.Current.MainPage.DisplayAlert("Error", "Cannot Connect to Server:\n" + e.Message, "Ok"); }        
         } 
 
         public async void ExecuteReSendCommand()

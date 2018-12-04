@@ -51,9 +51,5 @@
 	<string>This app need to access your Calendar events</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.5</string>
-	<key>XSAppIconAssets</key>
-	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
-	<key>XSLaunchImageAssets</key>
-	<string>Resources/Media.xcassets/LaunchImages.launchimage</string>
 </dict>
 </plist>
